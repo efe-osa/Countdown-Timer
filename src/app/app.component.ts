@@ -9,8 +9,9 @@ import {
   TITLE_MIN_LENGTH,
   TITLE_MAX_LENGTH,
   COUNTDOWN_INTERVAL,
-  DEFAULT_COUNTDOWN_DURATION,
   ERROR_MESSAGES,
+  DEFAULT_COUNTDOWN_DURATION,
+  DEFAULT_COUNTDOWN_TITLE,
 } from './app.constants';
 
 interface CountdownData {
@@ -34,7 +35,7 @@ export class AppComponent implements OnInit, OnDestroy {
   readonly minLength = TITLE_MIN_LENGTH;
   readonly maxLength = TITLE_MAX_LENGTH;
 
-  countdownTitle = "Time to Midsommer's Day";
+  countdownTitle = '';
   minDate = '';
   maxDate = '';
   targetDate: Date | null = null;
@@ -82,6 +83,7 @@ export class AppComponent implements OnInit, OnDestroy {
       this.startCountdown();
     } else {
       this.targetDate = new Date(Date.now() + DEFAULT_COUNTDOWN_DURATION);
+      this.countdownTitle = DEFAULT_COUNTDOWN_TITLE;
       this.startCountdown();
     }
   }
