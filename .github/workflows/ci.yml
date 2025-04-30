@@ -2,13 +2,14 @@ name: CI
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
+
+permissions:
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    concurrency: ci-${{ github.ref }} #
     steps:
       - uses: actions/checkout@v4
 
@@ -29,7 +30,9 @@ jobs:
 
       - name: Build
         run: npm run build -- --configuration production
-
-  github-deploy:
-    needs: build
-    uses: ./.github/workflows/deploy.yml
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4 Recommended if you intend to make multiple deployments in quick succession.
+        with:
+          branch: gh-pages # The branch the app will be deployed to
+          folder: dist/countdown-timer
+          token: ${{ secrets.GH_TOKEN }}
