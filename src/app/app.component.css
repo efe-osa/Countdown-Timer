@@ -1,0 +1,170 @@
+@import '@fontsource/open-sauce-one/400.css';
+@import '@fontsource/open-sauce-one/800.css';
+
+/* ===== Base Layout ===== */
+main {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--brand-gray);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* ===== Countdown Component ===== */
+.countdown-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.countdown-title {
+  color: var(--brand-purple);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  width: 100%;
+  white-space: nowrap;
+  font-weight: 800;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.countdown-display {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--brand-gray);
+}
+
+.time-block {
+  text-align: center;
+}
+
+.time-block:first-of-type .number,
+.time-block:nth-of-type(2) .number {
+  margin-right: 1.25rem;
+}
+
+/* ===== Form Component ===== */
+.form-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-content: stretch;
+  gap: 1.5rem 3.0625rem;
+  margin-top: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--brand-text);
+  transform: translateY(1.25rem) translateX(0.75rem);
+  background: var(--brand-gray);
+  display: inline;
+  width: fit-content;
+  padding: 0 0.5rem;
+}
+
+.form-group input {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--brand-text);
+  background-color: transparent;
+  border: 1px solid var(--brand-gray-light);
+  border-radius: 0.25rem;
+  padding: 1.125rem 0.6875rem;
+  width: 100%;
+  min-height: 4rem;
+}
+
+/* Date input specific styles */
+.form-group input[type='date'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.form-group input[type='date']::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+.form-button {
+  visibility: hidden;
+}
+
+.form-error-message {
+  color: red;
+  font-size: 0.5rem;
+  font-weight: 400;
+}
+
+.form-group .is-invalid {
+  border-color: #ef4444;
+}
+
+.form-group .is-invalid:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* ===== Media Queries ===== */
+/* Small devices (phones, 600px and down) */
+@media screen and (max-width: 37.5rem) {
+  .countdown-title {
+    margin-bottom: 1rem;
+  }
+
+  .form-container {
+    grid-template-columns: 1fr;
+    margin-top: 9.5rem;
+  }
+
+  .time-block:first-of-type .number,
+  .time-block:nth-of-type(2) .number {
+    margin-right: 0.5rem;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width: 48rem) {
+  .countdown-display {
+    gap: 1rem;
+  }
+
+  .form-container {
+    grid-template-columns: 1fr 1fr;
+    max-width: 75%;
+    width: 100%;
+  }
+}
+
+/* Large devices (desktops, 1024px and up) */
+@media screen and (min-width: 64rem) {
+  .countdown-display {
+    gap: 1.5rem;
+  }
+}
+
+/* Landscape orientation */
+@media screen and (orientation: landscape) and (min-width: 37.5rem) {
+  .form-container {
+    grid-template-columns: 1fr 1fr;
+    margin-top: 1.5rem;
+  }
+}
