@@ -1,8 +1,9 @@
 # MyCountdownApp
 
-## Description
+> ### Description
 
-<!-- TODO: update readme -->
+> This is a timer application for special events
+> URL: https://nc-countdown-timer.netlify.app/
 
 ## Requirement
 
@@ -23,8 +24,17 @@ To build the project,
 
 Run ng build to build the project. The build artifacts will be stored in the dist/ directory. Use the -prod flag for a production build.
 
+To test the project with details of the code covergae,
+
+Run ng test:ci
+
 ### Tools
 
 - Angular
+- Typescript
 
 ### Improvements
+
+- Add a button to cancel the timer
+- Add an error logging service like Sentry
+- Add dark mode for color accessibility
