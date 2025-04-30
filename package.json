@@ -6,14 +6,12 @@
     "npm": "10.9.2"
   },
   "scripts": {
-    "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint --fix",
     "analyze": "ng build --stats-json",
     "test:ci": "ng test --watch=false --browsers=ChromeHeadless --code-coverage",
-    "prepare": "husky",
     "format": "prettier --write \"src/**/*.{ts,html,css}\""
   },
   "private": true,
