@@ -1,5 +1,4 @@
 name: CI
-
 on:
   push:
     branches: [main]
@@ -31,8 +30,6 @@ jobs:
       - name: Build
         run: npm run build -- --configuration production
 
-      - name: 🚀 Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: gh-pages # The branch the app will be deployed to
-          folder: dist/countdown-timer
+  github-deploy:
+    needs: build
+    uses: ./.github/workflows/deploy.yml
