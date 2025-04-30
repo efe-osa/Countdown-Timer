@@ -1,5 +1,5 @@
 {
-  "name": "my-countdown-app",
+  "name": "countdown-timer",
   "version": "0.0.0",
   "engines": {
     "node": "^22.15.0",
