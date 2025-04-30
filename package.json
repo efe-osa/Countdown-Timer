@@ -6,13 +6,13 @@
     "npm": "10.9.2"
   },
   "scripts": {
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint --fix",
     "analyze": "ng build --stats-json",
-    "test:ci": "ng test --watch=false --browsers=ChromeHeadless --code-coverage",
-    "format": "prettier --write \"src/**/*.{ts,html,css}\""
+    "build": "ng build",
+    "format": "prettier --write \"src/**/*.{ts,html,css}\"",
+    "lint": "ng lint --fix",
+    "start": "ng serve",
+    "test": "ng test",
+    "test:ci": "ng test --watch=false --browsers=ChromeHeadless --code-coverage"
   },
   "private": true,
   "dependencies": {
