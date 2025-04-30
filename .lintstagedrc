@@ -1,0 +1,4 @@
+{
+  "*.ts": ["npm run lint", "npm run format"],
+  "*.{css,json,md}": ["npm run format"]
+}
