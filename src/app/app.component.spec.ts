@@ -178,7 +178,7 @@ describe('AppComponent', () => {
   describe('form submission', () => {
     it('should reset form after successful submission', () => {
       const futureDate = new Date();
-      futureDate.setDate(futureDate.getDate() + 1);
+      futureDate.setDate(futureDate.getDate() + 2);
       component.selectedDate =
         dateValidationService.formatDateForInput(futureDate);
       component.title = 'Test Title';

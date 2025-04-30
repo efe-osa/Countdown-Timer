@@ -1,8 +1,8 @@
 <main class="main">
   <div class="content">
     <div class="countdown-container">
-      <h1 class="countdown-title" appScalableFont="lg" letterSpacing="sm">
-        Time to {{ countdownTitle }}
+      <h1 *ngIf="countdownTitle" class="countdown-title" appScalableFont="lg" letterSpacing="sm">
+        {{ countdownTitle }}
       </h1>
       <div class="countdown-display" appScalableFont="xl" letterSpacing="sm">
         <div class="time-block">
@@ -29,31 +29,11 @@
       Congratulations! Your Event is here. 🎉
     </p>
 
-    <form
-      #countdownForm="ngForm"
-      (ngSubmit)="onFormSubmit(); countdownForm.reset()"
-      class="form-container"
-    >
+    <form #countdownForm="ngForm" (ngSubmit)="onFormSubmit()" class="form-container">
       <div class="form-group">
         <label for="title-input">Title</label>
-        <input
-          type="text"
-          id="title-input"
-          name="title"
-          [(ngModel)]="title"
-          #titleInput="ngModel"
-          required
-          minlength="3"
-          maxlength="20"
-          pattern="^[a-zA-Z0-9\s\-']*$"
-          aria-label="Input a title"
-          aria-required="true"
-          [class.is-invalid]="titleInput.invalid && titleInput.touched"
-        />
-        <div
-          *ngIf="titleInput.invalid && titleInput.touched && titleInput.errors"
-          class="form-error-message"
-        >
+        <input type="text" id="title-input" name="title" [(ngModel)]="title" #titleInput="ngModel" required minlength="minLength" maxlength="maxLength" pattern="^[a-zA-Z0-9\s\-']*$" aria-label="Input a title" aria-required="true" [class.is-invalid]="titleInput.invalid && titleInput.touched" />
+        <div *ngIf="titleInput.invalid && titleInput.touched && titleInput.errors" class="form-error-message">
           <div *ngIf="titleInput.errors?.['required']">
             {{ errorMessages.TITLE.REQUIRED }}
           </div>
@@ -70,42 +50,20 @@
       </div>
       <div class="form-group">
         <label for="date-input">Date</label>
-        <input
-          type="date"
-          id="date-input"
-          name="selectedDate"
-          [(ngModel)]="selectedDate"
-          #dateInput="ngModel"
-          [min]="minDate"
-          max="2050-05-01"
-          required
-          (input)="onDateInput(dateInput)"
-          aria-label="Select a date"
-          aria-required="true"
-          [class.is-invalid]="dateInput.invalid && dateInput.touched"
-        />
-        <div
-          *ngIf="dateInput.invalid && dateInput.touched && dateInput.errors"
-          class="form-error-message"
-        >
+        <input type="date" id="date-input" name="selectedDate" [(ngModel)]="selectedDate" #dateInput="ngModel" [min]="minDate" max="maxDate" required (input)="onDateInput(dateInput)" aria-label="Select a date" aria-required="true" [class.is-invalid]="dateInput.invalid && dateInput.touched" />
+        <div *ngIf="dateInput.invalid && dateInput.touched && dateInput.errors" class="form-error-message">
           <div *ngIf="dateInput.errors?.['required']">
             {{ errorMessages.DATE.REQUIRED }}
           </div>
-          <div
-            *ngIf="
+          <div *ngIf="
               dateInput.errors?.['min'] ||
               (selectedDate && !isDateValid(selectedDate))
-            "
-          >
+            ">
             {{ errorMessages.DATE.MIN }}
           </div>
         </div>
       </div>
-      <button
-        type="submit"
-        class="form-button"
-        [disabled]="!countdownForm.valid"
-      >
+      <button type="submit" class="form-button" [disabled]="!countdownForm.valid">
         Submit
       </button>
     </form>
