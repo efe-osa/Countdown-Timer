@@ -1,59 +1,30 @@
 # MyCountdownApp
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.9.
+## Description
 
-## Development server
+<!-- TODO: update readme -->
 
-To start a local development server, run:
+## Requirement
 
-```bash
-ng serve
-```
+- `Git` : It is used `git` as a version control system via `github`
+- `Node`: v22.15.0. You can install it from [here](https://nodejs.org/en/download)
+- `NPM`: It is used install packages and manage the dependencies. This is a link [here](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) with directions on how to download node package manager
+- `Angular CLI`: This is required to run the project on your local machine and can be download using the command showed in this [example](https://angular.dev/installation#example-1)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Installation steps
 
-## Code scaffolding
+- Verify that `node` and `npm` is installed on your local machine by running the command `node -v` and `npm -v`
+- Clone the repository to the folder of choice using `git clone https://github.com/efe-osa/Countdown-Timer.git`
+- In the project root directory install project dependencies using `npm install`.
+- To run this project in dev mode run ` ng serve`
+- Navigate to http://localhost:4200/ on your browser to see the result.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+To build the project,
 
-```bash
-ng generate component component-name
-```
+Run ng build to build the project. The build artifacts will be stored in the dist/ directory. Use the -prod flag for a production build.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Tools
 
-```bash
-ng generate --help
-```
+- Angular
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Improvements
