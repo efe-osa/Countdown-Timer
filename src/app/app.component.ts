@@ -9,8 +9,9 @@ import {
   TITLE_MIN_LENGTH,
   TITLE_MAX_LENGTH,
   COUNTDOWN_INTERVAL,
-  DEFAULT_COUNTDOWN_DURATION,
   ERROR_MESSAGES,
+  DEFAULT_COUNTDOWN_DURATION,
+  DEFAULT_COUNTDOWN_TITLE,
 } from './app.constants';
 
 interface CountdownData {
@@ -31,8 +32,10 @@ export class AppComponent implements OnInit, OnDestroy {
 
   // Expose error messages to template
   readonly errorMessages = ERROR_MESSAGES;
+  readonly minLength = TITLE_MIN_LENGTH;
+  readonly maxLength = TITLE_MAX_LENGTH;
 
-  countdownTitle = 'Midsummer ...';
+  countdownTitle = '';
   minDate = '';
   maxDate = '';
   targetDate: Date | null = null;
@@ -80,6 +83,7 @@ export class AppComponent implements OnInit, OnDestroy {
       this.startCountdown();
     } else {
       this.targetDate = new Date(Date.now() + DEFAULT_COUNTDOWN_DURATION);
+      this.countdownTitle = DEFAULT_COUNTDOWN_TITLE;
       this.startCountdown();
     }
   }
@@ -117,8 +121,8 @@ export class AppComponent implements OnInit, OnDestroy {
   private isValidCountdownData(data: CountdownData): boolean {
     return (
       typeof data.title === 'string' &&
-      data.title.length >= TITLE_MIN_LENGTH &&
-      data.title.length <= TITLE_MAX_LENGTH &&
+      data.title.length >= this.minLength &&
+      data.title.length <= this.maxLength &&
       !/[!@#$%^&*()_+\-=[\]{};\\":|,.<>/?]+/.test(data.title) &&
       typeof data.targetDate === 'string' &&
       !isNaN(new Date(data.targetDate).getTime())

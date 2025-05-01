@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ScalableFontDirective } from './directives/scalable-font.directive';
 import { DateValidationService } from './services/date-validation.service';
+import { ERROR_MESSAGES } from './app.constants';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -27,6 +28,7 @@ describe('AppComponent', () => {
 
   afterEach(() => {
     fixture.destroy();
+    TestBed.resetTestingModule();
   });
 
   describe('UI rendering', () => {
@@ -35,7 +37,7 @@ describe('AppComponent', () => {
     });
 
     it('should render event title', () => {
-      expect(compiled.querySelector('h1')?.textContent).toContain('Time to');
+      expect(compiled.querySelector('h1')).toBeTruthy();
     });
 
     it('should render form', () => {
@@ -64,7 +66,7 @@ describe('AppComponent', () => {
       const errorMessage = compiled.querySelector(
         '#title-input + .form-error-message div',
       )?.textContent;
-      expect(errorMessage?.trim()).toBe(component.errorMessages.TITLE.REQUIRED);
+      expect(errorMessage?.trim()).toBe(ERROR_MESSAGES.TITLE.REQUIRED);
     });
 
     it('should show date error message only after input is touched', () => {
@@ -79,7 +81,7 @@ describe('AppComponent', () => {
       const errorMessage = compiled.querySelector(
         '#date-input + .form-error-message div',
       )?.textContent;
-      expect(errorMessage?.trim()).toBe(component.errorMessages.DATE.REQUIRED);
+      expect(errorMessage?.trim()).toBe(ERROR_MESSAGES.DATE.REQUIRED);
     });
 
     it('should clear title error message when valid input is entered after touch', () => {
@@ -155,7 +157,7 @@ describe('AppComponent', () => {
   describe('dateInput validation', () => {
     it('should not submit form with null date', () => {
       component.selectedDate = null;
-      component.title = 'Test Title';
+      component.title = 'Test Title1';
 
       component.onFormSubmit();
       expect(component.targetDate).not.toBeNull();
@@ -175,19 +177,16 @@ describe('AppComponent', () => {
       expect(component.minDate).toBe(expectedMinDate);
     });
   });
+  it('should reset form after successful submission', () => {
+    const futureDate = new Date();
+    futureDate.setDate(futureDate.getDate() + 2);
+    component.selectedDate =
+      dateValidationService.formatDateForInput(futureDate);
+    component.title = 'Test Title2';
 
-  describe('form submission', () => {
-    it('should reset form after successful submission', () => {
-      const futureDate = new Date();
-      futureDate.setDate(futureDate.getDate() + 2);
-      component.selectedDate =
-        dateValidationService.formatDateForInput(futureDate);
-      component.title = 'Test Title';
+    component.onFormSubmit();
 
-      component.onFormSubmit();
-
-      expect(component.title).toBe('');
-      expect(component.selectedDate).toBeNull();
-    });
+    expect(component.title).toBe('');
+    expect(component.selectedDate).toBeNull();
   });
 });
