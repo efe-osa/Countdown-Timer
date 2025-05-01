@@ -12,6 +12,7 @@ import {
   ERROR_MESSAGES,
   DEFAULT_COUNTDOWN_DURATION,
   DEFAULT_COUNTDOWN_TITLE,
+  TITLE_PATTERN,
 } from './app.constants';
 
 interface CountdownData {
@@ -34,6 +35,7 @@ export class AppComponent implements OnInit, OnDestroy {
   readonly errorMessages = ERROR_MESSAGES;
   readonly minLength = TITLE_MIN_LENGTH;
   readonly maxLength = TITLE_MAX_LENGTH;
+  readonly titlePattern = TITLE_PATTERN;
 
   countdownTitle = '';
   minDate = '';
@@ -123,7 +125,7 @@ export class AppComponent implements OnInit, OnDestroy {
       typeof data.title === 'string' &&
       data.title.length >= this.minLength &&
       data.title.length <= this.maxLength &&
-      /^(?=.*[A-Za-z])(?=.*\d)(?=.*['@!]).+$/.test(data.title) &&
+      this.titlePattern.test(data.title) &&
       typeof data.targetDate === 'string' &&
       !isNaN(new Date(data.targetDate).getTime())
     );

@@ -92,12 +92,18 @@ describe('AppComponent', () => {
       titleInput.dispatchEvent(new Event('blur'));
       fixture.detectChanges();
 
+      const errorMessage = compiled.querySelector(
+        '#title-input + .form-error-message',
+      )?.textContent;
+      expect(errorMessage?.trim()).toBe(ERROR_MESSAGES.TITLE.REQUIRED);
+
       // Enter valid input
       component.title = 'Valid Title';
       titleInput.value = component.title;
       titleInput.dispatchEvent(new Event('input'));
       fixture.detectChanges();
 
+      console.log(errorMessage, titleInput.value);
       // Error message should be cleared
       expect(
         compiled.querySelector('#title-input + .form-error-message'),
