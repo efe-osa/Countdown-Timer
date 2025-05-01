@@ -8,7 +8,7 @@ export const DEFAULT_COUNTDOWN_DURATION = 10000; // 10 seconds
 export const DEFAULT_COUNTDOWN_TITLE = 'Time to Midsommer Day';
 
 // Title pattern
-export const TITLE_PATTERN = new RegExp(/^[A-Za-z0-9\-'!\s\p{L}]+$/u);
+export const TITLE_PATTERN = new RegExp(/^[A-Za-z0-9-'!\s\p{L}]+$/u);
 
 // Error messages
 export const ERROR_MESSAGES = {
