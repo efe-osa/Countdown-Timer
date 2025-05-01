@@ -123,7 +123,7 @@ export class AppComponent implements OnInit, OnDestroy {
       typeof data.title === 'string' &&
       data.title.length >= this.minLength &&
       data.title.length <= this.maxLength &&
-      !/[!@#$%^&*()_+\-=[\]{};\\":|,.<>/?]+/.test(data.title) &&
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*['@!]).+$/.test(data.title) &&
       typeof data.targetDate === 'string' &&
       !isNaN(new Date(data.targetDate).getTime())
     );
