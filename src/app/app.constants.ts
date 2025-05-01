@@ -5,7 +5,7 @@ export const TITLE_MAX_LENGTH = 30;
 // Countdown constants
 export const COUNTDOWN_INTERVAL = 1000;
 export const DEFAULT_COUNTDOWN_DURATION = 10000; // 10 seconds
-export const DEFAULT_COUNTDOWN_TITLE = 'Time to Midsommer';
+export const DEFAULT_COUNTDOWN_TITLE = 'Time to Midsommer Day';
 
 // Error messages
 export const ERROR_MESSAGES = {
