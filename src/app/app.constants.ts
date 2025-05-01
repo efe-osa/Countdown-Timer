@@ -8,7 +8,7 @@ export const DEFAULT_COUNTDOWN_DURATION = 10000; // 10 seconds
 export const DEFAULT_COUNTDOWN_TITLE = 'Time to Midsommer Day';
 
 // Title pattern
-export const TITLE_PATTERN = new RegExp(/^[A-Za-z0-9-'!\s\p{L}]+$/u);
+export const TITLE_PATTERN = new RegExp(/^[A-Za-z0-9\s\p{L}]+$/u);
 
 // Error messages
 export const ERROR_MESSAGES = {
@@ -17,7 +17,7 @@ export const ERROR_MESSAGES = {
     MIN_LENGTH: `Title must be at least ${TITLE_MIN_LENGTH} characters long`,
     MAX_LENGTH: `Title cannot exceed ${TITLE_MAX_LENGTH} characters`,
     PATTERN:
-      'Title can only contain letters, numbers, spaces, hyphens, and quotes',
+      'Title can only contain letters, numbers, spaces, and unicode characters',
   },
   DATE: {
     REQUIRED: 'Please select a date',
