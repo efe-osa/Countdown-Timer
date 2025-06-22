@@ -12,7 +12,10 @@
     "lint": "ng lint --fix",
     "start": "ng serve",
     "test": "ng test",
-    "test:ci": "ng test --watch=false --browsers=ChromeHeadless --code-coverage"
+    "test:ci": "ng test --watch=false --browsers=ChromeHeadless --code-coverage",
+    "github-build": "ng build --configuration production --base-href 'https://efe-osa.github.io/countdown-timer/'",
+    "github-deploy": "npx angular-cli-ghpages --dir=dist/countdown-timer --no-silent",
+    "gh-pages": "npm run github-build && npm run github-deploy"
   },
   "private": true,
   "dependencies": {
@@ -42,6 +45,7 @@
     "@types/jasmine": "~5.1.0",
     "@typescript-eslint/eslint-plugin": "7.11.0",
     "@typescript-eslint/parser": "7.11.0",
+    "angular-cli-ghpages": "^2.0.3",
     "angular-eslint": "^19.3.0",
     "eslint": "8.57.0",
     "eslint-config-prettier": "^9.1.0",
