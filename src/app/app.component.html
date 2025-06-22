@@ -50,7 +50,7 @@
           required
           [minlength]="minLength"
           [maxlength]="maxLength"
-          pattern="^[a-zA-Z0-9\s\-']*$"
+          [pattern]="titlePattern"
           aria-label="Input a title"
           aria-required="true"
           [class.is-invalid]="titleInput.invalid && titleInput.touched"

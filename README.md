@@ -1,9 +1,10 @@
 # MyCountdownApp
 
-> ### Description
+### Description
 
-> This is a timer application for special events
-> URL: https://nc-countdown-timer.netlify.app/
+    This is a timer application for special events
+
+URL: https://nc-countdown-timer.netlify.app/
 
 ## Requirement
 
@@ -17,16 +18,22 @@
 - Verify that `node` and `npm` is installed on your local machine by running the command `node -v` and `npm -v`
 - Clone the repository to the folder of choice using `git clone https://github.com/efe-osa/Countdown-Timer.git`
 - In the project root directory install project dependencies using `npm install`.
-- To run this project in dev mode run ` ng serve`
-- Navigate to http://localhost:4200/ on your browser to see the result.
 
-To build the project,
+To run this project in dev mode run,
 
-Run ng build to build the project. The build artifacts will be stored in the dist/ directory. Use the -prod flag for a production build.
+    ng serve
 
-To test the project with details of the code covergae,
+Navigate to http://localhost:4200/ on your browser to see the result.
 
-Run ng test:ci
+To build the project, run
+
+    ng build
+
+The build artifacts will be stored in the `dist/` directory. Use the `--configuration production` flag for a production build.
+
+To test the project with details of the code covergae, run
+
+    ng test:ci
 
 ### Tools
 
